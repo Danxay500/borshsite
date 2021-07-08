@@ -15,11 +15,10 @@ Pillow==8.3.0
 pylint==2.7.1
 pytz==2021.1
 PyYAML==5.4.1
-sox==1.4.2
 sqlparse==0.4.1
 toml==0.10.2
 typing-extensions==3.7.4.3
 watchdog==0.8.3
 whitenoise==5.2.0
 wrapt==1.12.1
-psycopg2==2.6.2
+psycopg2==2.8.5
