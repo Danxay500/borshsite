@@ -124,5 +124,9 @@ STATICFILES_DIRS = [
     Path(BASE_DIR, 'borshsite/static'),
 ]
 
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
 MEDIA_ROOT = Path(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

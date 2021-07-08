@@ -1,1 +1,1 @@
-python-3.9.1
+web: gunicorn borshsite.wsgi --log-file -
