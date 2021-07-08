@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ blog_item.title|truncatewords:5 }} | {{ block.super }}{% endblock %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'view_post/style.css' %}">
+<link rel="stylesheet" href="{% static 'view_post/fonts.css' %}">
+<link rel="stylesheet" href="{% static 'view_post/media.css' %}">
+<script src="{% static 'view_post/script.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<section class="post">
+    <div class="container">
+        <a href="{% url 'home' %}"><div class="exit-img"><img src="{% static 'view_post/images/exit.png' %}"></div></a>
+        <div class="heading">{{ blog_item.title }}</div>
+        <div class="date">АВТОР: <span class="autor-name">GamEle</span> · ОПУБЛИКОВАНО {{ blog_item.created_at|date:"Y/m/d H:i" }}</div>
+        <div class="text">{{ blog_item.content|linebreaksbr }}</div>
+        {% if blog_item.photo %}
+        <div class="photo"><img src="{{ blog_item.photo.url }}"></div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}GamEle{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}">
+    {% block meta %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/media.css' %}">
+    <script src="{% static 'blog/script.js' %}"></script>
+    {% endblock %}
+</head>
+
+    <body>
+
+        {% include 'inc/_header.html' %}
+
+        {% block content %}{% endblock %}
+
+        <script type="text/javascript">
+            /*const newPost = document.querySelectorAll(".new-post");
+            const newPostImg = document.querySelectorAll(".new-post-img");*/
+            const socIconImg = document.querySelectorAll(".soc-icon-img");
+        
+            const mobileMenuButton = document.querySelector(".mobile-menu-button");
+            const mobileMenu = document.querySelector(".mobile-menu");
+            const mobileMenuButtonLine = document.querySelectorAll(".mobile-menu-button-line");
+        
+            let openOrClose = false;
+        
+            let socIcons = ["{% static 'view_post/images/vk-icon.png' %}", "{% static 'view_post/images/discord-icon.png' %}", "{% static 'view_post/images/youtube-icon.png' %}", "{% static 'view_post/images/facebook-icon.png' %}", "{% static 'view_post/images/telegram-icon.png' %}"]
+            let socIconsHover = ["{% static 'view_post/images/vk-icon-hover.png' %}", "{% static 'view_post/images//discord-icon-hover.png' %}", "{% static 'view_post/images/youtube-icon-hover.png' %}", "{% static 'view_post/images/facebook-icon-hover.png' %}", "{% static 'view_post/images/telegram-icon-hover.png' %}"]
+        
+        
+            /*newPost[0].addEventListener("mouseover", ()=>{
+                newPostImg[0].style.backgroundImage = "url('{% static 'view_post/images/new-post-icon-hover.png' %}')";
+            })
+        
+            newPost[0].addEventListener("mouseout", ()=>{
+                newPostImg[0].style.backgroundImage = "url('{% static 'view_post/images/new-post-icon.png' %}')";
+            })
+        
+            newPost[1].addEventListener("mouseover", ()=>{
+                newPostImg[1].style.backgroundImage = "url('{% static 'view_post/images/new-post-icon-hover.png' %}')";
+            })
+        
+            newPost[1].addEventListener("mouseout", ()=>{
+                newPostImg[1].style.backgroundImage = "url('{% static 'view_post/images/new-post-icon.png' %}')";
+            })*/
+        
+        
+            for (let i = 0; i < socIconImg.length; i++) {
+                socIconImg[i].addEventListener("mouseover", ()=>{
+                    socIconImg[i].src = socIconsHover[i];
+                })
+                socIconImg[i].addEventListener("mouseout", ()=>{
+                    socIconImg[i].src = socIcons[i];
+                })
+            }
+        
+            mobileMenuButton.addEventListener("click", ()=>{
+                if (openOrClose == false) {
+                    mobileMenu.style.display = "block";
+                    setTimeout(()=>{
+                        mobileMenu.style.transform = "translateY(0)"
+                    }, 0)
+                    for (let i = 0; i < mobileMenuButtonLine.length; i++) {
+                        mobileMenuButtonLine[i].style.background = "#ffffff";
+                    }
+                    openOrClose = true;
+                }
+                else {
+                    setTimeout(()=>{
+                        mobileMenu.style.display = "none";
+                    }, 300)
+                    for (let i = 0; i < mobileMenuButtonLine.length; i++) {
+                        mobileMenuButtonLine[i].style.background = "#000000";
+                    }
+                    mobileMenu.style.transform = "translateY(-220px)"
+                    openOrClose = false;
+                }
+            })
+        
+        </script>
+
+    </body>
+
+</html>

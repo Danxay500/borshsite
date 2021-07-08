@@ -1,0 +1,29 @@
+{% load static %}
+<header>
+    <div class="left">
+        <div class="mobile-menu">
+            <a href="{% url 'home' %}"><div class="button-mobile-menu">Главная</div></a>
+            <!--<a href="#"><div class="new-post"><div class="new-post-img"></div>Новый пост</div></a>-->
+        </div>
+        <div class="logo">
+            <a href="{% url 'home' %}"><img src="{% static 'blog/images/logo.jpg' %}" alt="GamEle-logo" title="GamEle"></a>
+        </div>
+        <nav>
+            <a href="{% url 'home' %}"><div>Главная</div></a>
+        </nav>
+        <!--<div class="display-none-new-post"><a href="#"><div class="new-post"><div class="new-post-img"></div>Новый пост</div></a></div>-->
+    </div>
+    <a href="/admin/"><div class="auth">Вход</div></div></a>
+    <div class="right">
+        <a href="https://vk.com/gamele_e" target="_blank"><div title="Подпишитесь на нас в VK"><img class="soc-icon-img" src="{% static 'blog/images/vk-icon.png' %}"></div></a>
+        <a href="https://discord.gg/hf5me8yC" target="_blank"><div title="Подпишитесь на нас в Discord"><img class="soc-icon-img" src="{% static 'blog/images/discord-icon.png' %}"></div></a>
+        <a href="https://www.youtube.com/channel/UCMOUpwM_dUq6dx84gcdNUmg" target="_blank"><div title="Подпишитесь на нас в YouTube"><img class="soc-icon-img" src="{% static 'blog/images/youtube-icon.png' %}"></div></a>
+        <a href="https://www.facebook.com/groups/771216900112894" target="_blank"><div title="Подпишитесь на нас в Facebook"><img class="soc-icon-img" src="{% static 'blog/images/facebook-icon.png' %}"></div></a>
+        <a href="https://t.me/gamele_e" target="_blank"><div title="Подпишитесь на нас в Telegram"><img class="soc-icon-img" src="{% static 'blog/images/telegram-icon.png' %}"></div></a>
+    </div>
+    <div class="mobile-menu-button">
+        <div class="mobile-menu-button-line"></div>
+        <div class="mobile-menu-button-line"></div>
+        <div class="mobile-menu-button-line"></div>
+    </div>
+</header>
