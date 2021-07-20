@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="{% static 'view_post/style.css' %}">
 <link rel="stylesheet" href="{% static 'view_post/fonts.css' %}">
 <link rel="stylesheet" href="{% static 'view_post/media.css' %}">
-<script src="{% static 'view_post/script.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -15,7 +14,12 @@
     <div class="container">
         <a href="{% url 'home' %}"><div class="exit-img"><img src="{% static 'view_post/images/exit.png' %}"></div></a>
         <div class="heading">{{ blog_item.title }}</div>
+        {% if blog_item.created_at == blog_item.updated_at %}
         <div class="date">АВТОР: <span class="autor-name">GamEle</span> · ОПУБЛИКОВАНО {{ blog_item.created_at|date:"Y/m/d H:i" }}</div>
+        {% else %}
+        <div class="date">АВТОР: <span class="autor-name">GamEle</span> · ОПУБЛИКОВАНО {{ blog_item.created_at|date:"Y/m/d H:i" }} · ОБНОВЛЕНО {{ blog_item.updated_at|date:"Y/m/d H:i" }}</div>
+        {% endif %}
+        <div class="date views">{{ views }}</div>
         <div class="text">{{ blog_item.content|linebreaksbr }}</div>
         {% if blog_item.photo %}
         <div class="photo"><img src="{{ blog_item.photo.url }}"></div>

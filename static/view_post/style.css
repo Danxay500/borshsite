@@ -196,6 +196,7 @@ header .right img {
     height: 36px;
     border-radius: 2px;
     border: 2px solid #091133;
+    position: relative;
     display: none;
     z-index: 0;
     transition: 0.3s ease-in-out;
@@ -208,6 +209,10 @@ header .right img {
     position: absolute;
     left: 4px;
     border-radius: 2px;
+}
+
+.mobile-menu {
+    z-index: 2;
 }
 
 .mobile-menu-button-line:nth-child(1) {
@@ -266,4 +271,20 @@ header .right img {
     left: 30px;
     display: block;
     height: 50px;
+}
+
+.views {
+    position: relative;
+    margin: 5px 0;
+}
+
+.views::after {
+    content: '';
+    background-image: url("images/views.png");
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-size: cover;
+    top: 50%;
+    transform: translate(25%, -50%);
 }

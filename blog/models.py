@@ -1,5 +1,7 @@
 from typing import Text
 from django.db import models
+from django.db.models.deletion import PROTECT, SET_NULL
+from django.db.models.fields import BigIntegerField
 from django.urls import reverse
 
 class Blog(models.Model):
@@ -11,8 +13,8 @@ class Blog(models.Model):
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
 
     def get_absolute_url(self):
-        return reverse('view_post', kwargs={'post_id': self.pk})
-
+        return reverse('view_post', kwargs={'pk': self.pk})
+        
     def __str__(self):
         return self.title
 
@@ -20,3 +22,18 @@ class Blog(models.Model):
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
         ordering = ['-created_at']
+    
+class Views(models.Model):
+    id = models.BigIntegerField(primary_key=True, editable=False)
+    views = models.BigIntegerField(default=0, verbose_name='Просмотры')
+
+    def __str__(self):
+        return str(self.views)
+
+    class Meta:
+        verbose_name = 'Просмотры'
+        verbose_name_plural = 'Просмотры'
+        ordering = ['-id']
+
+class Comment(models.Model):
+    pass

@@ -212,6 +212,10 @@ header .right img {
     border-radius: 2px;
 }
 
+.mobile-menu {
+    z-index: 2;
+}
+
 .mobile-menu-button-line:nth-child(1) {
     top: 8px;
 }

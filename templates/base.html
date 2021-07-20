@@ -22,8 +22,8 @@
         {% block content %}{% endblock %}
 
         <script type="text/javascript">
-            /*const newPost = document.querySelectorAll(".new-post");
-            const newPostImg = document.querySelectorAll(".new-post-img");*/
+            const newPost = document.querySelectorAll(".new-post");
+            const newPostImg = document.querySelectorAll(".new-post-img");
             const socIconImg = document.querySelectorAll(".soc-icon-img");
         
             const mobileMenuButton = document.querySelector(".mobile-menu-button");
@@ -36,7 +36,7 @@
             let socIconsHover = ["{% static 'view_post/images/vk-icon-hover.png' %}", "{% static 'view_post/images//discord-icon-hover.png' %}", "{% static 'view_post/images/youtube-icon-hover.png' %}", "{% static 'view_post/images/facebook-icon-hover.png' %}", "{% static 'view_post/images/telegram-icon-hover.png' %}"]
         
         
-            /*newPost[0].addEventListener("mouseover", ()=>{
+            newPost[0].addEventListener("mouseover", ()=>{
                 newPostImg[0].style.backgroundImage = "url('{% static 'view_post/images/new-post-icon-hover.png' %}')";
             })
         
@@ -50,7 +50,7 @@
         
             newPost[1].addEventListener("mouseout", ()=>{
                 newPostImg[1].style.backgroundImage = "url('{% static 'view_post/images/new-post-icon.png' %}')";
-            })*/
+            })
         
         
             for (let i = 0; i < socIconImg.length; i++) {

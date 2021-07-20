@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+<section class="posts">
+    <div class="container">
+    {% for item in blog %}
+        <div class="post-card">
+            <div>
+                {% if item.photo %}
+                <img src="{{ item.photo.url }}">
+                {% endif %}
+            </div>
+            <div class="right">
+                <div class="heading">{{ item.title }}</div>
+                <div class="text">{{ item.content|linebreaksbr|truncatewords:50 }}</div>
+                <div class="button-and-comments">
+                    <a href="{{ item.get_absolute_url }}"><div class="button">Читать полностью</div></a>
+                    <div class="comments">0</div>
+                </div>
+                <div class="time">{{ item.created_at|date:"Y/m/d H:i" }}</div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+{% endblock %}

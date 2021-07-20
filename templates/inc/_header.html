@@ -3,7 +3,7 @@
     <div class="left">
         <div class="mobile-menu">
             <a href="{% url 'home' %}"><div class="button-mobile-menu">Главная</div></a>
-            <!--<a href="#"><div class="new-post"><div class="new-post-img"></div>Новый пост</div></a>-->
+            <a href="{% url 'add_post' %}"><div class="new-post"><div class="new-post-img"></div>Новый пост</div></a>
             <a href="/admin/"><div>Вход</div></a>
 
         </div>
@@ -13,7 +13,7 @@
         <nav>
             <a href="{% url 'home' %}"><div>Главная</div></a>
         </nav>
-        <!--<div class="display-none-new-post"><a href="#"><div class="new-post"><div class="new-post-img"></div>Новый пост</div></a></div>-->
+        <div class="display-none-new-post"><a href="{% url 'add_post' %}"><div class="new-post"><div class="new-post-img"></div>Новый пост</div></a></div>
     </div>
     <a href="/admin/"><div class="auth">Вход</div></div></a>
     <div class="right">
